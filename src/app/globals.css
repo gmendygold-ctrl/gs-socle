@@ -1,26 +1,18 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Charte GS Global */
+@theme {
+  --color-violet: #6c5bd4;
+  --color-violet-fonce: #4a3cae;
+  --color-or: #d6ac61;
+  --color-encre: #231f20;
+  --color-gris: #f4f3f7;
+  --color-bordure: #e2e0ea;
+  --color-erreur: #b42318;
+  --color-succes: #067647;
+  --font-sans: "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
+html { color-scheme: light; }
+body { background: var(--color-gris); color: var(--color-encre); font-family: var(--font-sans); }
+:focus-visible { outline: 3px solid var(--color-or); outline-offset: 2px; }
