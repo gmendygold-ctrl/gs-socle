@@ -10,11 +10,14 @@
 
 ## Mise en place (une fois)
 
-1. **Supabase** : créer le projet (région la plus proche des utilisateurs), activer la confirmation
-   d'e-mail, définir l'URL du site et les URL de redirection (`https://domaine/auth/confirmation`).
+1. **Supabase** : créer le projet (région la plus proche des utilisateurs : `eu-west-3` Paris pour le Sénégal),
+   puis Authentication → URL Configuration : **Site URL** = `https://domaine` et **Redirect URLs** =
+   `https://domaine/**` (sinon les liens d'e-mail renvoient vers `localhost`). La page `/auth/confirmation`
+   accepte le lien par défaut (`?code=`) et le modèle personnalisé (`?token_hash=`).
 2. Appliquer les migrations : `supabase link --project-ref <ref>` puis `supabase db push`.
 3. **GitHub** : pousser le dépôt ; l'intégration continue (`.github/workflows/qualite.yml`) se lance.
-4. **Vercel** : importer le dépôt, renseigner `NEXT_PUBLIC_SUPABASE_URL`,
+4. **Vercel** : importer le dépôt (l'application GitHub de Vercel doit avoir accès au dépôt),
+   région des fonctions `cdg1` (Paris), renseigner `NEXT_PUBLIC_SUPABASE_URL`,
    `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`, `NEXT_PUBLIC_SITE_URL` (Production et Preview).
 5. Domaine : ajouter le domaine dans Vercel, puis l'enregistrement DNS demandé.
 
